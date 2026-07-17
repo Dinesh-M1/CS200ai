@@ -1,0 +1,47 @@
+{
+  "88d9323b-2c5c-4d43-b3a0-54d89ac133fb": {
+    "id": "88d9323b-2c5c-4d43-b3a0-54d89ac133fb",
+    "selection_id": 1,
+    "node_snapshot": [
+      {
+        "node_id": 1,
+        "logical_key": "_preamble",
+        "content_hash": "ee899c33b079b9b88c785016d7c750944f14ded37cbf9a62ffc764d9a057b4de"
+      }
+    ],
+    "test_cases": [
+      {
+        "title": "Verify CT-200 powers on and displays home screen",
+        "description": "Press and hold the power button for one second, verify the device powers on and displays the home screen",
+        "expected_result": "The device powers on and displays the home screen with the correct user profile selection"
+      },
+      {
+        "title": "Verify cu\ufb00 in\ufb02ation sequence and measurement accuracy",
+        "description": "Start a measurement, verify the cu\ufb00 in\ufb02ates to an initial target of 180 mmHg, and then in\ufb02ates in 40 mmHg increments up to a maximum of 299 mmHg, verify the measurement accuracy is within \u00b13 mmHg",
+        "expected_result": "The cu\ufb00 in\ufb02ates correctly and the measurement accuracy is within \u00b13 mmHg"
+      },
+      {
+        "title": "Verify device auto-shutoff and low-battery detection",
+        "description": "Leave the device idle for 60 seconds, verify it auto-shutoffs, then simulate a low-battery condition, verify the device displays a low-battery icon and aborts the measurement",
+        "expected_result": "The device auto-shutoffs after 60 seconds of inactivity and displays a low-battery icon when the battery level falls below 15%"
+      },
+      {
+        "title": "Verify error code E1: Cu\ufb00 not connected or leak detected",
+        "description": "Simulate a cu\ufb00 not connected or leak detected condition, verify the device aborts the measurement and displays error code E1",
+        "expected_result": "The device aborts the measurement and displays error code E1"
+      },
+      {
+        "title": "Verify error code E3: Overpressure condition",
+        "description": "Simulate an overpressure condition, verify the device auto-de\ufb02ates within 2 seconds and displays error code E3",
+        "expected_result": "The device auto-de\ufb02ates within 2 seconds and displays error code E3"
+      },
+      {
+        "title": "Verify data storage and syncing with the CardioTrack companion app",
+        "description": "Take multiple measurements, verify the device stores the readings in non-volatile memory, then pair the device with the CardioTrack companion app, verify the readings sync automatically",
+        "expected_result": "The device stores the readings in non-volatile memory and syncs the readings with the CardioTrack companion app"
+      }
+    ],
+    "status": "ok",
+    "created_at": "2026-07-16T18:15:48.115416+00:00"
+  }
+}
