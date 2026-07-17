@@ -72,12 +72,7 @@ $env:LLM_API_KEY="your_key_here"
 uvicorn app.main:app --reload
 ```
 
-The API will be available at:
-
-- http://127.0.0.1:8000/
-- http://127.0.0.1:8000/api/...
-
-5. Or run the sample ingestion/generation workflow
+5. run the sample ingestion/generation workflow
 
 ```bash
 python run.py
