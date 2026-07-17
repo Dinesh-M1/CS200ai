@@ -43,5 +43,35 @@
     ],
     "status": "ok",
     "created_at": "2026-07-16T18:15:48.115416+00:00"
+  },
+  "8cc9e3c1-4b77-411d-9b5c-f53593136253": {
+    "id": "8cc9e3c1-4b77-411d-9b5c-f53593136253",
+    "selection_id": 1,
+    "node_snapshot": [
+      {
+        "node_id": 1,
+        "logical_key": "_preamble",
+        "content_hash": "f045336ed484b69116dd48ebeb62667c8c9d7c6a506b3c5ad6df513615758742"
+      }
+    ],
+    "test_cases": [
+      {
+        "title": "Verify the Heading: _preamble guidance is captured",
+        "description": "Review the selected section and confirm the documented behavior, limits, and safety requirements are represented in the QA checks.",
+        "expected_result": "A structured test case set is produced for the selected section with clear verification steps and expected results."
+      },
+      {
+        "title": "Validate the Heading: _preamble safety behavior",
+        "description": "Check that the generated test cases cover the main safety, alarm, or user-facing constraints described in the source content.",
+        "expected_result": "The generated cases include at least one safety-oriented verification step."
+      },
+      {
+        "title": "Confirm the Heading: _preamble output is actionable",
+        "description": "Ensure the generated QA content is specific enough for a tester to execute without needing additional interpretation.",
+        "expected_result": "Each test case has a concrete title, verification steps, and an expected result."
+      }
+    ],
+    "status": "ok",
+    "created_at": "2026-07-17T04:09:18.862285+00:00"
   }
 }

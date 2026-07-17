@@ -3,8 +3,8 @@ from pathlib import Path
 
 from app import __init__  # noqa: F401
 from app.db import SessionLocal, init_db
-from app.models import Node, Selection
-from app.store import save_generation
+from app.models import Node, Selection, SelectionNode
+from app.store import get_generation
 from app.versioning import ingest_document
 from app.llm import generate_test_cases
 from pypdf import PdfReader
@@ -64,23 +64,20 @@ def main():
     else:
         print(f"Using existing selection: {selection.id}")
 
+    existing_link = db.query(SelectionNode).filter(
+        SelectionNode.selection_id == selection.id,
+        SelectionNode.node_id == node.id,
+    ).first()
+    if existing_link is None:
+        db.add(SelectionNode(selection_id=selection.id, node_id=node.id))
+        db.commit()
+        print(f"Linked node {node.id} to selection {selection.id}")
+
     print(f"Generating test cases for node: {node.heading}")
-    section_text = f"# {node.heading}\n{node.body}"
-
-    test_cases = generate_test_cases(section_text)
-    print(f"Generated {len(test_cases)} test cases")
-
-    gen_id = save_generation(
-        selection_id=selection.id,
-        node_snapshot=[{
-            "node_id": node.id,
-            "logical_key": node.logical_key,
-            "content_hash": node.content_hash,
-        }],
-        test_cases=test_cases,
-        status="ok",
-    )
-    print(f"Saved generation: {gen_id}")
+    generation_id = generate_test_cases(selection.id, db=db)
+    generation = get_generation(generation_id)
+    print(f"Generated {len(generation['test_cases'])} test cases")
+    print(f"Saved generation: {generation_id}")
 
 
 if __name__ == "__main__":
